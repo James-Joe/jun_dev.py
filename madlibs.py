@@ -1,9 +1,4 @@
-#Madlibs - just scribbles for now.  Need to think how best to get the input
-# and display it
-
 print("Welcome to Mad libs!")
-
-
 
 #This function provides the basic functionallity of the game.
 #The function finishes by calling play_again(), which gives the player
