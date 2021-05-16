@@ -19,8 +19,6 @@ def word_count():
 
     new_list = [word for word in make_list if word.startswith((".", ",", ";", ":", "?", "!", "-")) == False]
 
-    print(new_list)
-
     length_lst= len(new_list)
 
     print("Your text has " + str(length_lst) + " words.")
