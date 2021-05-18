@@ -1,8 +1,17 @@
 email = "jacobassplayer@hotmail.co.uk"
 
-get_username = email.split("@")
+#get_username = email.split("@")
 
-username = get_username[0]
+#username = get_username[0]
 
-print(username)
+name = ""
+
+for i in email:
+    if i == "@":
+        break
+    name += i
+
+
+print(name)
+
 
