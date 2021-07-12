@@ -2,8 +2,26 @@
 # information and send an email to the address that has been inputted.
 
 
+import smtplib, ssl
 
+def send_email(recipient):
+  port = 587  # For starttls
+  smtp_server = "smtp.gmail.com"
+  sender_email = "test.py.67@gmail.com"
+  receiver_email = recipient
+  password = input("Type your password and press enter:")
+  message = """\
+  Subject: Hi there
 
+  This message is sent from Python."""
+
+  context = ssl.create_default_context()
+  with smtplib.SMTP(smtp_server, port) as server:
+      server.ehlo()  # Can be omitted
+      server.starttls(context=context)
+      server.ehlo()  # Can be omitted
+      server.login(sender_email, password)
+      server.sendmail(sender_email, receiver_email, message)
 
 def get_domain(email):
     name = email[0:email.index("@")]
@@ -16,6 +34,7 @@ def get_domain(email):
       print("Well, " + name + " looks like you have a hotmail account")
     else:
       print("Ohh!  Looks like you have a custom domain name ... Noice!")
+    send_email(email)
 
 
 print("Hey! What's your email?")
