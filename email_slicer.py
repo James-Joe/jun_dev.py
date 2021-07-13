@@ -2,14 +2,14 @@
 # information and send an email to the address that has been inputted.
 
 
-import smtplib, ssl
+import smtplib, ssl, getpass 
 
 def send_email(recipient):
   port = 587  # For starttls
   smtp_server = "smtp.gmail.com"
   sender_email = "test.py.67@gmail.com"
   receiver_email = recipient
-  password = input("Type your password and press enter:")
+  password = getpass.getpass()
   message = """\
   Subject: Hi there
 
