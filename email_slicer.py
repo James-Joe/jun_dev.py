@@ -9,18 +9,31 @@ def send_email(recipient):
   smtp_server = "smtp.gmail.com"
   sender_email = "test.py.67@gmail.com"
   receiver_email = recipient
-  password = getpass.getpass()
+  password = getpass.getpass(prompt="Please provide your password")
+    
   message = """\
-  Subject: Hi there
+  Subject: Help! I'm a Nigerian prince!
 
-  This message is sent from Python."""
+  Hello.  I'm a Nigerian prince captured by Somali pirates.  I'm incredibly wealthy but can't access all the wealth I've got.  
+  If you could pay the ransom of 200 euros to these pirates, I'll pay you 250 euros for your troubles.
+  This isn't a scam.
+  Love,
+  Nigerian prince.
+   """
 
   context = ssl.create_default_context()
   with smtplib.SMTP(smtp_server, port) as server:
       server.ehlo()  # Can be omitted
       server.starttls(context=context)
       server.ehlo()  # Can be omitted
-      server.login(sender_email, password)
+      
+      try:
+        server.login(sender_email, password)
+
+      except smtplib.SMTPAuthenticationError:
+        password = getpass.getpass(prompt="Please provide your password")
+        server.login(sender_email, password)
+
       server.sendmail(sender_email, receiver_email, message)
 
 def get_domain(email):
