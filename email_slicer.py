@@ -1,5 +1,5 @@
 #In this project, I attempt to obtain the domain name of an email from user input.  I then take this
-# information and send an email to the address that has been inputted.
+#information and send an email to the address that has been inputted.
 
 
 import smtplib, ssl, getpass 
@@ -31,6 +31,9 @@ def send_email(recipient):
         server.login(sender_email, password)
 
       except smtplib.SMTPAuthenticationError:
+
+        print("Your password was not accepted. Try again.")
+          
         password = getpass.getpass(prompt="Please provide your password")
         server.login(sender_email, password)
 
@@ -42,9 +45,9 @@ def get_domain(email):
     spliced_domain = domain.split(".")
 
     if spliced_domain[0] == "gmail":
-      print("Well, " + name + " looks like you have a gmail account")
+      print("Well, " + name + ", looks like you have a gmail account")
     elif spliced_domain[0] == "hotmail":
-      print("Well, " + name + " looks like you have a hotmail account")
+      print("Well, " + name + ", looks like you have a hotmail account")
     else:
       print("Ohh!  Looks like you have a custom domain name ... Noice!")
     send_email(email)
