@@ -1,7 +1,28 @@
 #In this programme, I take an input of 5 words from the user, and check if any of those words are a palindrome.
 
-usr_lst = ["dad", "mum", "James", "rats live on no evil star"]
+def get_input():
+    words = input("Please input 5 words or phrases separated by a comma\n")
 
-rev_lst = [i[::-1] for i in usr_lst]
+    lst = words.split(",")
 
-print(rev_lst)
+    return lst
+
+
+
+def reverse_list(lst):
+
+#    rev_lst = [i[::-1] for i in lst]
+    for i in lst:
+        if i != i[::-1]:
+            continue
+        print(i + " is a palindrome")
+    
+
+
+
+wrds = ["radar", "steve", "mum"]
+
+for word in wrds:
+    if word != word[::-1]:
+        continue
+    print(word + " is a palindrome")
