@@ -9,7 +9,7 @@ def user_input_one():
         
     else:
         print("Please choose a valid option")
-        user_input_one()
+        return user_input_one()
 
 def user_input_two():
     input_two = input("Player two, \nplease choose rock, paper, or scissors\n")
@@ -20,7 +20,7 @@ def user_input_two():
     
     else:
         print("Please choose a valid option")
-        user_input_two()
+        return user_input_two()
 
 
 
