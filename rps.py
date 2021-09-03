@@ -4,7 +4,7 @@ from getpass import getpass
 
 def user_input_one():
     input_one = getpass(prompt="Player one, \nplease choose rock, paper, or scissors\n")
-    input_one.lower()
+    input_one = input_one.lower()
 
     if input_one == "rock" or input_one == "paper" or input_one == "scissors":
         return input_one 
@@ -16,7 +16,7 @@ def user_input_one():
 
 def user_input_two():
     input_two = getpass(prompt="Player two, \nplease choose rock, paper, or scissors\n")
-    input_two.lower()
+    input_two = input_two.lower()
 
     if input_two == "rock" or input_two == "paper" or input_two == "scissors":
         return input_two
