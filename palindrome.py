@@ -4,7 +4,7 @@ def is_palindrome():
     words = input("Please input 5 words or phrases separated by a comma\n")
 
     lst = words.lower().split(", ")
-    print(lst)
+    #print(lst)
 
     for i in lst:
         if i != i[::-1]:
