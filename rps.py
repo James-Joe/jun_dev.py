@@ -1,7 +1,9 @@
 #This programme allows two users to input rock, paper, or scissors in order to play the game.
 
+from getpass import getpass
+
 def user_input_one():
-    input_one = input("Player one, \nplease choose rock, paper, or scissors\n")
+    input_one = getpass(prompt="Player one, \nplease choose rock, paper, or scissors\n")
     input_one.lower()
 
     if input_one == "rock" or input_one == "paper" or input_one == "scissors":
@@ -10,9 +12,10 @@ def user_input_one():
     else:
         print("Please choose a valid option")
         return user_input_one()
+        
 
 def user_input_two():
-    input_two = input("Player two, \nplease choose rock, paper, or scissors\n")
+    input_two = getpass(prompt="Player two, \nplease choose rock, paper, or scissors\n")
     input_two.lower()
 
     if input_two == "rock" or input_two == "paper" or input_two == "scissors":
