@@ -46,10 +46,26 @@ def decide_winner(input_one, input_two):
       print("Paper beats rock")
 
 
+def restart():
+    replay = input("++++++++++++\n\nWould you like to play again?\n\n(y/n)\n\n++++++++++++\n\n")
+
+    replay = replay.lower()
+
+    if replay == "y":
+        return main()
+    elif replay == "n":
+        print("\n\nThanks for playing!\n\n")
+        raise SystemExit
+    else:
+        print("Please provide a valid input (y/n).\n")
+        return restart()
+
 def main():
     input_one = user_input_one()
     input_two = user_input_two()
     decide_winner(input_one, input_two)
+    restart()
+    
 
 main()
 
