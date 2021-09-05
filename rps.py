@@ -1,8 +1,12 @@
 #This programme allows two users to input rock, paper, or scissors in order to play the game.
 
 from getpass import getpass
+import random
+
+
 
 def user_input_one():
+
     input_one = getpass(prompt="Player one, \nplease choose rock, paper, or scissors\n")
     input_one = input_one.lower()
 
@@ -14,7 +18,10 @@ def user_input_one():
         return user_input_one()
         
 
+
+
 def user_input_two():
+
     input_two = getpass(prompt="Player two, \nplease choose rock, paper, or scissors\n")
     input_two = input_two.lower()
 
@@ -27,10 +34,23 @@ def user_input_two():
 
 
 
+def computer_input():
+
+    choices = ["rock", "paper", "scissors"]
+
+    rand_num = random.randrange(0, 3)
+
+    choice = choices[rand_num]
+
+    return choice
+
+
+
+
 def decide_winner(input_one, input_two):
 
-    print("================\n\n\nPlayer one choose " + str(input_one)
-    + "\nPlayer two choose " + str(input_two) + ".\n\n\n================")
+    print("================\n\n\nPlayer one chose " + str(input_one)
+    + "\nPlayer two chose " + str(input_two) + ".\n\n\n================")
 
 
     if input_one == input_two:
@@ -47,6 +67,7 @@ def decide_winner(input_one, input_two):
 
 
 def restart():
+
     replay = input("++++++++++++\n\nWould you like to play again?\n\n(y/n)\n\n++++++++++++\n\n")
 
     replay = replay.lower()
@@ -61,6 +82,7 @@ def restart():
         return restart()
 
 def main():
+
     input_one = user_input_one()
     input_two = user_input_two()
     decide_winner(input_one, input_two)
@@ -68,8 +90,3 @@ def main():
     
 
 main()
-
-
-
-
-    
