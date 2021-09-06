@@ -1,8 +1,17 @@
-#This programme allows two users to input rock, paper, or scissors in order to play the game.
+#This programme allows two users to input rock, paper, or scissors in order to play the game. The game can also 
+#be played by one player against the computer.
 
 from getpass import getpass
 import random
 
+
+
+def welcome():
+    print("++++++++++\n\nHello! Let's play rock, paper, scissors.\n\n Would you like to play the computer? (y/n)\n\n++++++++++ ")
+
+    player_choice = input()
+    player_choice = player_choice.lower()
+    return player_choice
 
 
 def user_input_one():
@@ -83,9 +92,21 @@ def restart():
 
 def main():
 
-    input_one = user_input_one()
-    input_two = user_input_two()
-    decide_winner(input_one, input_two)
+    player_choice = welcome()
+
+    if player_choice == "y":
+        input_one = user_input_one()
+        input_two = computer_input()
+        decide_winner(input_one, input_two)
+    
+    elif player_choice == "n":
+        input_one = user_input_one()
+        input_two = user_input_two()
+        decide_winner(input_one, input_two)
+    
+    else:
+        print("Please choose a valid option")
+        return main()
     restart()
     
 
